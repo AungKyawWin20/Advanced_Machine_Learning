@@ -20,11 +20,15 @@ slope = st.selectbox("Slope of ST Segment (0-2)", [0, 1, 2])
 ca = st.selectbox("Number of Major Vessels (0-4)", [0, 1, 2, 3, 4])
 thal = st.selectbox("Thalassemia (0-3)", [0, 1, 2, 3])
 
-with open('knn_heart_model.pkl', 'rb') as f:
-    loaded_model = pickle.load(f)
+model_path = 'knn_heart_model.pkl'
+scaler_path = 'knn_scaler.pkl'
 
-with open('knn_scaler.pkl', 'rb') as f:
-    loaded_scaler = pickle.load(f)
+def load_model(path):
+    with open(path, 'rb') as f:
+        return pickle.load(f)
+
+loaded_model = load_model(model_path)
+loaded_scaler = load_model(scaler_path)
 
 if st.button("Predict"):
     try:
