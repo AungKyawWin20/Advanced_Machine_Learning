@@ -20,8 +20,8 @@ slope = st.selectbox("Slope of ST Segment (0-2)", [0, 1, 2])
 ca = st.selectbox("Number of Major Vessels (0-4)", [0, 1, 2, 3, 4])
 thal = st.selectbox("Thalassemia (0-3)", [0, 1, 2, 3])
 
-model_path = 'knn_heart_model.pkl'
-scaler_path = 'knn_scaler.pkl'
+model_path = 'heart_risk_app/knn_heart_model.pkl'
+scaler_path = 'heart_risk_app/knn_scaler.pkl'
 
 def load_model(path):
     with open(path, 'rb') as f:
