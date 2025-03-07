@@ -13,7 +13,7 @@ petal_length = st.number_input("Petal Length", min_value=1.0, max_value=10.0, va
 petal_width = st.number_input("Petal Width", min_value=0.0, max_value=10.0, value=0.0, format="%.2f")
 
 # Load model
-model_path = r'Advanced_Machine_Learning\Assignments\Streamlit_App_Assignment\knn_model.pkl'
+model_path = r'Assignments\Streamlit_App_Assignment\knn_model.pkl'
 
 @st.cache_resource  # Cache the loaded model to improve performance
 def load_model(path):
