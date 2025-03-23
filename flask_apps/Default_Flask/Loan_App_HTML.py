@@ -24,7 +24,7 @@ def home():
             for col in column_order:
                 user_input[col] = request.form[col]
 
-            # Convert categorical variables using LabelEncoders
+            # using LabelEncoders
             features = []
             for col in column_order:
                 if col in label_encoders:
@@ -35,9 +35,9 @@ def home():
             # Scale input features
             features_scaled = scaler.transform([features])
 
-            # Make prediction
+            # prediction
             prediction = model.predict(features_scaled)[0]
-            result_text = "Approved" if prediction == 1 else "Rejected"
+            result_text = "applicant will likely default on loan 💀" if prediction == 1 else "applicant will likely repay loan 🎉"
 
             return render_template("result.html", prediction=result_text)
         

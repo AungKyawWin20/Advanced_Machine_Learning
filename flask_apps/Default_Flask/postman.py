@@ -35,14 +35,12 @@ def predict():
 
         # Predict using KNN model
         prediction = model.predict(features_scaled)[0]
-
-        return jsonify({"loan_status": int(prediction)})
-
+        
         if prediction == 1:
             return jsonify({"loan_status": "Applicant will likely default on loan"})
         else:
             return jsonify({"loan_status": "Applicant will likely repay loan"})
-    
+        
     except Exception as e:
         return jsonify({"error": str(e)})
 
