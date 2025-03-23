@@ -41,4 +41,21 @@
         <label>Loan Intent:</label>
         <select name="loan_intent" required>
             <option value="PERSONAL">Personal</option>
-            <option
+            <option value="EDUCATION">Education</option>
+            <option value="MEDICAL">Medical</option>
+            <option value="VENTURE">Venture</option>
+            <option value="HOMEIMPROVEMENT">Home Improvement</option>
+            <option value="DEBTCONSOLIDATION">Debt Consolidation</option>
+        </select><br>
+
+        <label>Previous Loan Defaults:</label>
+        <select name="previous_loan_defaults_on_file" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+
+        <!-- Submit Button -->
+        <button type="submit">Predict Loan Status</button>
+    </form>
+</body>
+</html>

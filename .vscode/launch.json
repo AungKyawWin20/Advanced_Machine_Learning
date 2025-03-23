@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open loan_form.html",
+            "file": "c:\\Users\\akw97\\Desktop\\Parami Courses\\Advanced_Machine_Learning\\flask_apps\\Loan_Flask\\templates\\loan_form.html"
+        }
+    ]
+}
