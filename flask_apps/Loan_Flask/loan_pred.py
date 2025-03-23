@@ -9,7 +9,7 @@ from sklearn.neighbors import KNeighborsClassifier
 import joblib
 
 #Loading the dataset       
-df = pd.read_csv('flask_apps\KNN Flask(Loan_Default)\loan_data.csv')
+df = pd.read_csv(r'C:\Users\akw97\Desktop\Parami Courses\Advanced_Machine_Learning\flask_apps\Loan_Flask\loan_data.csv')
 
 #Dropping the 'loan_status' column
 X = df.drop('loan_status', axis=1)
@@ -20,11 +20,13 @@ y = df['loan_status']
 le = LabelEncoder()
 sc = StandardScaler()
 
-for col in X.columns:
-    if X[col].dtype == 'object':
-        X[col] = le.fit_transform(X[col])
-    else:
-        X[col] = sc.fit_transform(X[[col]])
+categorical_cols = X.select_dtypes(include='object').columns
+for col in categorical_cols:
+    X[col] = le.fit_transform(X[col])
+
+# Standardizing numerical columns
+numerical_cols = X.select_dtypes(include=['int64', 'float64']).columns
+X[numerical_cols] = sc.fit_transform(X[numerical_cols])
         
 #Splitting the dataset into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0, shuffle=True, stratify=y)
