@@ -15,6 +15,10 @@ with open('label_encoder.joblib', 'rb') as f:
 # Load Standard Scaler
 with open('standard_scaler.joblib', 'rb') as f:
     sc = joblib.load(f)
+    
+@app.route('/')
+def home():
+    return render_template('loan_form.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
