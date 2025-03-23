@@ -9,7 +9,7 @@ model = joblib.load("knn_model.joblib")
 scaler = joblib.load("scaler.joblib")
 label_encoders = joblib.load("label_encoders.joblib")
 
-# Define API endpoint for prediction
+# Define predict endpoint
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
@@ -37,6 +37,11 @@ def predict():
         prediction = model.predict(features_scaled)[0]
 
         return jsonify({"loan_status": int(prediction)})
+
+        if prediction == 1:
+            return jsonify({"loan_status": "Applicant will likely default on loan"})
+        else:
+            return jsonify({"loan_status": "Applicant will likely repay loan"})
     
     except Exception as e:
         return jsonify({"error": str(e)})
