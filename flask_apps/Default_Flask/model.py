@@ -1,12 +1,11 @@
 import pandas as pd
-import numpy as np
 import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.neighbors import KNeighborsClassifier
 
 # Load the dataset
-file_path = "loan_data.csv"  # Change this to your actual dataset path
+file_path = "loan_data.csv"
 df = pd.read_csv(file_path)
 
 # Encode categorical variables
@@ -34,7 +33,7 @@ X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, 
 knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(X_train, y_train)
 
-# Save the model and preprocessing objects
+# Saving the model and preprocessing objects
 joblib.dump(knn, "knn_model.joblib")
 joblib.dump(scaler, "scaler.joblib")
 joblib.dump(label_encoders, "label_encoders.joblib")
